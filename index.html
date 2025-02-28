@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Password Generator</h1>
+<div class="inline-group">
+    <label for="length">Password Length:</label>
+    <input type="range" id="length" min="8" max="35" oninput="showValue(this.value)" value="8">
+    <span id="rangeValue">8</span>
+</div>
+<div class="complexity-group">
+    <label>Select Options:</label>
+    <label><input type="checkbox" id="numbers" checked> Numbers</label>
+    <label><input type="checkbox" id="uppercase"> Uppercase Letters</label>
+    <label><input type="checkbox" id="lowercase"> Lowercase Letters</label>
+    <label><input type="checkbox" id="special"> Special Characters</label>
+</div>
+<button onclick="generatePassword()">Generate Password</button>
+<div id="password" title="Password Generated"></div>
+<button onclick="copyPassword()">Copy to Clipboard</button>
+
+<script>
+    function showValue(val) {
+        document.getElementById("rangeValue").textContent = val;
+    }
+
+    function generatePassword() {
+        const length = parseInt(document.getElementById('length').value);
+        let charset = "";
+
+        if (document.getElementById('numbers').checked) charset += "0123456789";
+        if (document.getElementById('uppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (document.getElementById('lowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
+        if (document.getElementById('special').checked) charset += "!@#$%^&*()_-+=<>?/";
+
+        if (!charset) {
+            alert("Please select at least one option.");
+            return;
+        }
+
+        let password = Array.from(crypto.getRandomValues(new Uint8Array(length)), byte => charset[byte % charset.length]).join('');
+        const passwordDiv = document.getElementById('password');
+        passwordDiv.textContent = '*'.repeat(password.length);
+        passwordDiv.dataset.password = password;
+    }
+
+    function copyPassword() {
+        const passwordDiv = document.getElementById('password');
+        const password = passwordDiv.dataset.password;
+        if (!password) {
+            alert("No password to copy!");
+            return;
+        }
+        navigator.clipboard.writeText(password).then(() => alert("Password copied to clipboard!"))
+        .catch(() => alert("Failed to copy password."));
+    }
+</script>
+</body>
+</html>
