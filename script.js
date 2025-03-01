@@ -14,7 +14,7 @@ const securityTips = [
 
 async function fetchCyberNews() {
   try {
-    const response = await fetch("https://newsapi.org/v2/everything?q=cybersecurity&apiKey=0713e57ac3f94813b3f032c4016cc10d");
+    const response = await fetch("https://cybernewsapi.vercel.app/api/news");
     const data = await response.json();
     if (data.articles.length > 0) {
       const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
@@ -36,35 +36,23 @@ function showRandomTip() {
   }
 }
 
+function showClock() {
+  const clockElement = document.getElementById("digital-clock");
+  if (clockElement) {
+    const now = new Date();
+    const hours = now.getHours() % 12 || 12;
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    const ampm = now.getHours() >= 12 ? "PM" : "AM";
+    clockElement.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
+  }
+}
+
 setInterval(showRandomTip, 10000);
 setInterval(fetchCyberNews, 15000);
+setInterval(showClock, 1000);
 window.onload = function () {
   showRandomTip();
   fetchCyberNews();
+  showClock();
 };
-function updateClock() {
-    const clock = document.getElementById('digital-clock');
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    clock.textContent = `${hours}:${minutes}:${seconds}`;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-async function fetchCyberNews() {
-  try {
-    const response = await fetch("https://cybernewsapi.vercel.app/api/news");
-    const data = await response.json();
-    if (data.articles.length > 0) {
-      const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
-      const newsElement = document.getElementById("cyber-news");
-      if (newsElement) {
-        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
-      }
-    }
-  } catch (error) {
-    console.error("Failed to fetch news", error);
-  }
-}
