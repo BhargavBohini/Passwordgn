@@ -53,3 +53,18 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+async function fetchCyberNews() {
+  try {
+    const response = await fetch("https://cybernewsapi.vercel.app/api/news");
+    const data = await response.json();
+    if (data.articles.length > 0) {
+      const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
+      const newsElement = document.getElementById("cyber-news");
+      if (newsElement) {
+        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
+      }
+    }
+  } catch (error) {
+    console.error("Failed to fetch news", error);
+  }
+}
