@@ -14,13 +14,13 @@ const securityTips = [
 
 async function fetchCyberNews() {
   try {
-    const response = await fetch("https://newsapi.org/v2/everything?q=cybersecurity&apiKey=2da1e627c8dc4c44a0f1475eaa34b78b");
+    const response = await fetch("https://api.mediastack.com/v1/news?access_key=a65b4bbd3d36544e2c90a5a63e9b1d2f&keywords=cybersecurity&languages=en");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    if (data.articles && data.articles.length > 0) {
-      const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
+    if (data.data && data.data.length > 0) {
+      const randomArticle = data.data[Math.floor(Math.random() * data.data.length)];
       const newsElement = document.getElementById("cyber-news");
       if (newsElement) {
         newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
