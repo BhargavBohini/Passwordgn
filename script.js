@@ -14,7 +14,7 @@ const securityTips = [
 
 async function fetchCyberNews() {
   try {
-    const response = await fetch("https://cybernewsapi.vercel.app/api/news");
+    const response = await fetch("https://newsapi.org/v2/everything?q=cybersecurity&apiKey=2da1e627c8dc4c44a0f1475eaa34b78b");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -51,11 +51,11 @@ function showClock() {
   }
 }
 
-setInterval(showRandomTip, 10000);
-setInterval(fetchCyberNews, 15000);
-setInterval(showClock, 1000);
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", () => {
   showRandomTip();
   fetchCyberNews();
   showClock();
-};
+  setInterval(showRandomTip, 10000);
+  setInterval(fetchCyberNews, 15000);
+  setInterval(showClock, 1000);
+});
