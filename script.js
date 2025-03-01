@@ -15,8 +15,11 @@ const securityTips = [
 async function fetchCyberNews() {
   try {
     const response = await fetch("https://cybernewsapi.vercel.app/api/news");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
     const data = await response.json();
-    if (data.articles.length > 0) {
+    if (data.articles && data.articles.length > 0) {
       const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
       const newsElement = document.getElementById("cyber-news");
       if (newsElement) {
