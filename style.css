@@ -151,3 +151,17 @@ h1, h2 {
     width: 100%;
     animation: fadeIn 1s ease-in-out;
 }
+#cyber-news {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
