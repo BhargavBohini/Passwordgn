@@ -137,3 +137,17 @@ h1, h2 {
     right: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
+#security-tip {
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
