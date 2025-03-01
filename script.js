@@ -1,23 +1,3 @@
-function updateClock() {
-    const clock = document.getElementById("digital-clock");
-    if (clock) {
-        const now = new Date();
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        let seconds = now.getSeconds();
-        let ampm = hours >= 12 ? "PM" : "AM";
-        
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        
-        clock.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
-    }
-}
-
-setInterval(updateClock, 1000);
-window.onload = updateClock;
 // Security Tip API Code
 const securityTips = [
   "Use strong and unique passwords for every account.",
@@ -32,6 +12,22 @@ const securityTips = [
   "Lock your devices when not in use."
 ];
 
+async function fetchCyberNews() {
+  try {
+    const response = await fetch("https://newsapi.org/v2/everything?q=cybersecurity&apiKey=0713e57ac3f94813b3f032c4016cc10d");
+    const data = await response.json();
+    if (data.articles.length > 0) {
+      const randomArticle = data.articles[Math.floor(Math.random() * data.articles.length)];
+      const newsElement = document.getElementById("cyber-news");
+      if (newsElement) {
+        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
+      }
+    }
+  } catch (error) {
+    console.error("Failed to fetch news", error);
+  }
+}
+
 function showRandomTip() {
   const tip = securityTips[Math.floor(Math.random() * securityTips.length)];
   const tipElement = document.getElementById("security-tip");
@@ -41,5 +37,8 @@ function showRandomTip() {
 }
 
 setInterval(showRandomTip, 10000);
-window.onload = showRandomTip;
-
+setInterval(fetchCyberNews, 15000);
+window.onload = function () {
+  showRandomTip();
+  fetchCyberNews();
+};
