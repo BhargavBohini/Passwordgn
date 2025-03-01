@@ -121,3 +121,19 @@ h1, h2 {
     display: inline-block;
     order: -1; /* This makes the clock appear at the top */
 }
+#digital-clock {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
