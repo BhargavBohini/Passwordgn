@@ -47,12 +47,13 @@ button:hover {
     padding: 10px;
     border: 2px solid #f39c12;
     display: inline-block;
-    background: #f4f4f4;
+    background: white; /* Fixed background to match body */
     max-width: 80%;
     word-wrap: break-word;
     border-radius: 10px;
     position: relative;
     font-size: 1.2em;
+    color: black; /* Text color to ensure visibility */
 }
 
 .copy-icon {
@@ -138,7 +139,7 @@ button:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
+    body, #password {
         background: #1e1e2d;
         color: white;
     }
