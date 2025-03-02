@@ -23,7 +23,7 @@ async function fetchCyberNews() {
       const randomArticle = data.hits[Math.floor(Math.random() * data.hits.length)];
       const newsElement = document.getElementById("cyber-news");
       if (newsElement) {
-        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
+        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank" style="color: yellow;">${randomArticle.title}</a>`;
         newsElement.style.marginTop = "20px";
         newsElement.style.fontSize = "20px";
         newsElement.style.color = "#fff";
