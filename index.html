@@ -12,7 +12,6 @@
 </head>
 <body>
 <div id="digital-clock"></div>
-    
 <h1>Password Generator</h1>
 <div class="inline-group">
     <label for="length">Password Length:</label>
@@ -27,9 +26,10 @@
     <label><input type="checkbox" id="special"> Special Characters</label>
 </div>
 <button onclick="generatePassword()">Generate Password</button>
-<div id="password" title="Password Generated"><span class="copy-icon" onclick="copyPassword()">📋</span></div>
-    <div id="password"><span class="password-text"></span></div>
-
+<div id="password" title="Password Generated">
+    <span class="password-text"></span>
+    <span class="copy-icon" onclick="copyPassword()">📋</span>
+</div>
 <script>
     function showValue(val) {
         document.getElementById("rangeValue").textContent = val;
@@ -50,14 +50,14 @@
         }
 
         let password = Array.from(crypto.getRandomValues(new Uint8Array(length)), byte => charset[byte % charset.length]).join('');
-        const passwordDiv = document.getElementById('password');
-        passwordDiv.textContent = '*'.repeat(password.length);
-        passwordDiv.dataset.password = password;
+        const passwordSpan = document.querySelector('#password .password-text');
+        passwordSpan.textContent = password;
+        passwordSpan.dataset.password = password;
     }
 
     function copyPassword() {
-        const passwordDiv = document.getElementById('password');
-        const password = passwordDiv.dataset.password;
+        const passwordSpan = document.querySelector('#password .password-text');
+        const password = passwordSpan.dataset.password;
         if (!password) {
             alert("No password to copy!");
             return;
@@ -67,6 +67,5 @@
     }
 </script>
 <div id="security-tip"></div>
-<script src="script.js"></script>
 </body>
 </html>
