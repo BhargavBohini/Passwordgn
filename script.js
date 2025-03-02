@@ -1,43 +1,41 @@
-// Security Tip API Code
-const securityTips = [
-  "Use strong and unique passwords for every account.",
-  "Enable two-factor authentication wherever possible.",
-  "Never share your passwords with anyone.",
-  "Regularly update your software and applications.",
-  "Avoid clicking on suspicious email links.",
-  "Use a password manager to store your passwords.",
-  "Do not reuse passwords across different websites.",
-  "Always check website URLs before entering sensitive information.",
-  "Use antivirus software and keep it updated.",
-  "Lock your devices when not in use."
-];
-
-function showRandomTip() {
-  const tip = securityTips[Math.floor(Math.random() * securityTips.length)];
-  const tipElement = document.getElementById("security-tip");
-  if (tipElement) {
-    tipElement.innerHTML = `💡 Security Tip: ${tip}`;
-  }
-}
-
-function showClock() {
-  const clockElement = document.getElementById("digital-clock");
-  if (clockElement) {
-    const now = new Date();
-    const hours = now.getHours() % 12 || 12;
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    const seconds = now.getSeconds().toString().padStart(2, "0");
-    const ampm = now.getHours() >= 12 ? "PM" : "AM";
-    clockElement.innerHTML = `${hours}:${minutes}:${seconds} ${ampm}`;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  showRandomTip();
-  showClock();
-  setInterval(showRandomTip, 10000);
-  setInterval(showClock, 1000);
-});
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="dark-mode-toggle" onclick="toggleDarkMode()">🌞/🌙</div>
+<div id="digital-clock"></div>
+<h1>Password Generator</h1>
+<div class="inline-group">
+    <label for="length">Password Length:</label>
+    <input type="range" id="length" min="8" max="35" oninput="showValue(this.value)" value="8">
+    <span id="rangeValue">8</span>
+</div>
+<div class="complexity-group">
+    <label><input type="checkbox" id="numbers" checked> Numbers</label>
+    <label><input type="checkbox" id="uppercase"> Uppercase Letters</label>
+    <label><input type="checkbox" id="lowercase"> Lowercase Letters</label>
+    <label><input type="checkbox" id="special"> Special Characters</label>
+</div>
+<div>
+    <button onclick="generatePassword()">Generate Password</button>
+</div>
+<div id="password" title="Password Generated">
+    <span class="password-text"></span>
+    <span class="copy-icon" onclick="copyPassword()" title="Copy to Clipboard">📋<span class="tooltip">Copy</span></span>
+</div>
+<div>
+    <input type="text" id="ip-address" placeholder="Enter IP Address">
+    <button id="validate-btn" onclick="validateIPAddress()">Validate IP</button>
+    <div class="validation-message" id="validation-message"></div>
+</div>
+<div id="security-tip"></div>
+<script src="script.js"></script>
+</body>
+</html>
