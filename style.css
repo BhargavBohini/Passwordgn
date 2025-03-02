@@ -1,72 +1,67 @@
+/* Modern Design Changes */
 body {
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
     text-align: center;
-    margin: 0;
-    background: url('https://github.com/BhargavBohini/Passwordgn/blob/main/background1.jpg?raw=true') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 20px;
+    color: #ffffff;
+    padding: 20px;
 }
 
-input, select, button {
-    margin: 10px;
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.inline-group, .complexity-group {
+    margin: 20px 0;
     padding: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    transition: box-shadow 0.3s ease-in-out;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
-input:focus, select:focus {
-    box-shadow: 0 0 10px rgba(33, 147, 176, 0.8);
+input[type='range'] {
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background: #ff9800;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffa726;
 }
 
 #password {
-    margin-top: 20px;
+    font-size: 1.2em;
+    margin: 20px 0;
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: inline-block;
-    width: auto;
-    min-width: 300px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 5px;
-    text-align: left;
-    letter-spacing: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    word-break: break-all;
 }
 
 #digital-clock {
-    font-size: 28px;
+    font-size: 1.5em;
+    color: #ff9800;
     font-weight: bold;
-    color: #fff;
-    text-align: right;
-    margin: 10px 20px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    display: inline-block;
-    letter-spacing: 2px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 20px;
-    right: 20px;
 }
 
 #security-tip {
-    font-size: 20px;
-    color: yellow;
-    margin-top: 30px;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    text-align: center;
-    display: inline-block;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    max-width: 80%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    color: #ff9800;
 }
