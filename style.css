@@ -144,3 +144,17 @@ button:hover {
         color: white;
     }
 }
+
+/* IP Address Validation */
+#ip-address {
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #f39c12;
+    border-radius: 10px;
+    display: inline-block;
+    width: 200px;
+}
+
+#validate-btn {
+    margin-top: 10px;
+}
