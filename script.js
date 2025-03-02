@@ -23,12 +23,12 @@ async function fetchCyberNews() {
       const randomArticle = data.hits[Math.floor(Math.random() * data.hits.length)];
       const newsElement = document.getElementById("cyber-news");
       if (newsElement) {
-        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank" style="color: yellow;">${randomArticle.title}</a>`;
+        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank" style="color: yellow; text-decoration: underline;">${randomArticle.title}</a><br><img src="${randomArticle.urlToImage ? randomArticle.urlToImage : 'https://via.placeholder.com/150'}" alt="News Image" style="width: 100px; height: auto; display: block; margin: 10px auto;">`;
         newsElement.style.marginTop = "20px";
         newsElement.style.fontSize = "20px";
         newsElement.style.color = "#fff";
         newsElement.style.textAlign = "center";
-        newsElement.style.padding = "10px";
+        newsElement.style.padding = "30px";
         newsElement.style.background = "rgba(0, 0, 0, 0.7)";
         newsElement.style.borderRadius = "10px";
         newsElement.style.display = "inline-block";
