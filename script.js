@@ -38,3 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(showRandomTip, 10000);
   setInterval(showClock, 1000);
 });
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
