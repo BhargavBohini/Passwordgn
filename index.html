@@ -27,9 +27,7 @@
     <label><input type="checkbox" id="special"> Special Characters</label>
 </div>
 <button onclick="generatePassword()">Generate Password</button>
-<div id="password" title="Password Generated"></div>
-<button onclick="copyPassword()">Copy to Clipboard</button>
-
+<div id="password" title="Password Generated"><span class="copy-icon" onclick="copyPassword()">📋</span></div>
 <script>
     function showValue(val) {
         document.getElementById("rangeValue").textContent = val;
