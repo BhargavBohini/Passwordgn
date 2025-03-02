@@ -14,16 +14,28 @@ const securityTips = [
 
 async function fetchCyberNews() {
   try {
-    const response = await fetch("https://api.mediastack.com/v1/news?access_key=a65b4bbd3d36544e2c90a5a63e9b1d2f&keywords=cybersecurity&languages=en");
+    const response = await fetch("https://hn.algolia.com/api/v1/search?query=cybersecurity");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    if (data.data && data.data.length > 0) {
-      const randomArticle = data.data[Math.floor(Math.random() * data.data.length)];
+    if (data.hits && data.hits.length > 0) {
+      const randomArticle = data.hits[Math.floor(Math.random() * data.hits.length)];
       const newsElement = document.getElementById("cyber-news");
       if (newsElement) {
         newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank">${randomArticle.title}</a>`;
+        newsElement.style.marginTop = "20px";
+        newsElement.style.fontSize = "20px";
+        newsElement.style.color = "#fff";
+        newsElement.style.textAlign = "center";
+        newsElement.style.padding = "10px";
+        newsElement.style.background = "rgba(0, 0, 0, 0.7)";
+        newsElement.style.borderRadius = "10px";
+        newsElement.style.display = "inline-block";
+        newsElement.style.width = "100%";
+        newsElement.style.overflow = "hidden";
+        newsElement.style.whiteSpace = "nowrap";
+        newsElement.style.textOverflow = "ellipsis";
       }
     }
   } catch (error) {
