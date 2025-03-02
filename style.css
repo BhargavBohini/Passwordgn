@@ -2,7 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     margin: 0;
-    background: url('background1') no-repeat center center fixed;
+    background: url('https://github.com/BhargavBohini/Passwordgn/blob/main/background1.jpg?raw=true') no-repeat center center fixed;
     background-size: cover;
     color: white;
     height: 100vh;
@@ -26,10 +26,6 @@ input:focus, select:focus {
     box-shadow: 0 0 10px rgba(33, 147, 176, 0.8);
 }
 
-input[type="range"] {
-    width: 300px;
-}
-
 #password {
     margin-top: 20px;
     padding: 10px;
@@ -37,131 +33,40 @@ input[type="range"] {
     display: inline-block;
     width: auto;
     min-width: 300px;
-    max-width: 100%;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 5px;
     text-align: left;
     letter-spacing: 5px;
-    user-select: none;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-button {
-    cursor: pointer;
-    background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
-    color: white;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-button:hover {
-    background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
-    transform: scale(1.05);
-}
-
-.inline-group, .complexity-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.complexity-group span {
-    cursor: help;
-    position: relative;
-}
-
-.complexity-group span:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-h1, h2 {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 #digital-clock {
     font-size: 28px;
     font-weight: bold;
     color: #fff;
-    text-align: center;
-    margin-bottom: 20px; /* Added margin to give space */
-    letter-spacing: 2px;
+    text-align: right;
+    margin: 10px 20px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     display: inline-block;
-    order: -1; /* This makes the clock appear at the top */
-}
-#digital-clock {
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    margin-top: 20px;
     letter-spacing: 2px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
+
 #security-tip {
     font-size: 20px;
-    color: #fff;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    letter-spacing: 1px;
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-    animation: fadeIn 1s ease-in-out;
-}
-#cyber-news {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
+    color: yellow;
+    margin-top: 30px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    text-align: center;
     display: inline-block;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 80%;
 }
