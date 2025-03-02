@@ -1,113 +1,71 @@
-/* Modern Design Changes */
+/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #141e30, #243b55);
+    font-family: Arial, sans-serif;
     text-align: center;
-    color: #ffffff;
-    padding: 20px;
+    background: #1e1e2d;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.inline-group {
     margin: 20px 0;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    display: inline-block;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-}
-
-.complexity-group {
-    margin: 20px 0;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    display: block;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-    text-align: left;
-    width: 300px;
-    margin: auto;
-}
-
-.complexity-group label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input[type='range'] {
-    width: 300px;
+    color: #f39c12;
+    font-size: 2.5em;
 }
 
 button {
     padding: 10px 20px;
-    background: #ff9800;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
+    margin: 20px 0;
     cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 0;
+    border: none;
+    border-radius: 10px;
+    background: #f39c12;
+    color: white;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background: #ffa726;
+    background: #e67e22;
+}
+
+.inline-group {
+    margin: 20px 0;
 }
 
 #password {
-    font-size: 1.2em;
-    margin: 20px 0 0 0;
+    margin: 20px 0;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-    word-break: break-word;
+    border: 2px solid #f39c12;
     display: inline-block;
-    max-width: 90%;
-    white-space: normal;
-    text-align: center;
+    background: #2c2c3d;
+    max-width: 80%;
+    word-wrap: break-word;
+    border-radius: 10px;
     position: relative;
-    width: auto;
 }
 
-#password span.copy-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+.copy-icon {
+    display: inline-block;
+    margin-left: 10px;
     cursor: pointer;
-    color: #ff9800;
-    font-weight: bold;
     font-size: 1.2em;
-    transition: 0.3s;
+    vertical-align: middle;
 }
 
-#password span.copy-icon:hover {
-    color: #ffa726;
-}
-
-#digital-clock {
-    font-size: 1.5em;
-    color: #ff9800;
-    font-weight: bold;
+.password-text {
+    display: inline-block;
+    vertical-align: middle;
+    word-break: break-word;
+    max-width: calc(100% - 30px);
 }
 
 #security-tip {
-    font-size: 1.2em;
-    background: rgba(0, 0, 0, 0.5);
+    color: yellow;
+    font-size: 1em;
     padding: 10px;
+    background: #333;
+    border: 1px solid #f39c12;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-    color: #ff9800;
     margin-top: 20px;
-}
-
-#password span.password-text {
-    display: inline;
-    font-weight: bold;
-    color: #ffffff;
 }
