@@ -7,11 +7,9 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
-    <div id="digital-clock" style="position: absolute; top: 10px; right: 10px;"></div>
-    <div id="security-tip" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);"></div>
 </head>
 <body>
+<div class="dark-mode-toggle" onclick="toggleDarkMode()">🌞/🌙</div>
 <div id="digital-clock"></div>
 <h1>Password Generator</h1>
 <div class="inline-group">
@@ -20,56 +18,24 @@
     <span id="rangeValue">8</span>
 </div>
 <div class="complexity-group">
-    <label>Select Options:</label>
     <label><input type="checkbox" id="numbers" checked> Numbers</label>
     <label><input type="checkbox" id="uppercase"> Uppercase Letters</label>
     <label><input type="checkbox" id="lowercase"> Lowercase Letters</label>
     <label><input type="checkbox" id="special"> Special Characters</label>
 </div>
-<button onclick="generatePassword()">Generate Password</button>
-<button onclick="copyPassword()">Copy to Clipboard</button>
-
+<div>
+    <button onclick="generatePassword()">Generate Password</button>
 </div>
 <div id="password" title="Password Generated">
     <span class="password-text"></span>
-    <span class="copy-icon" onclick="copyPassword()">📋</span>
+    <span class="copy-icon" onclick="copyPassword()" title="Copy to Clipboard">📋<span class="tooltip">Copy</span></span>
 </div>
-<script>
-    function showValue(val) {
-        document.getElementById("rangeValue").textContent = val;
-    }
-
-    function generatePassword() {
-        const length = parseInt(document.getElementById('length').value);
-        let charset = "";
-
-        if (document.getElementById('numbers').checked) charset += "0123456789";
-        if (document.getElementById('uppercase').checked) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        if (document.getElementById('lowercase').checked) charset += "abcdefghijklmnopqrstuvwxyz";
-        if (document.getElementById('special').checked) charset += "!@#$%^&*()_-+=<>?/";
-
-        if (!charset) {
-            alert("Please select at least one option.");
-            return;
-        }
-
-        let password = Array.from(crypto.getRandomValues(new Uint8Array(length)), byte => charset[byte % charset.length]).join('');
-        const passwordSpan = document.querySelector('#password .password-text');
-        passwordSpan.textContent = password;
-        passwordSpan.dataset.password = password;
-    }
-
-    function copyPassword() {
-        const passwordSpan = document.querySelector('#password .password-text');
-        const password = passwordSpan.dataset.password;
-        if (!password) {
-            alert("No password to copy!");
-            return;
-        }
-        navigator.clipboard.writeText(password).then(() => alert("Password copied to clipboard!"))
-        .catch(() => alert("Failed to copy password."));
-    }
-</script>
+<div>
+    <input type="text" id="ip-address" placeholder="Enter IP Address">
+    <button id="validate-btn" onclick="validateIPAddress()">Validate IP</button>
+    <div class="validation-message" id="validation-message"></div>
+</div>
 <div id="security-tip"></div>
+<script src="script.js"></script>
 </body>
 </html>
