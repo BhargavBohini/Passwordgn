@@ -12,37 +12,6 @@ const securityTips = [
   "Lock your devices when not in use."
 ];
 
-async function fetchCyberNews() {
-  try {
-    const response = await fetch("https://hn.algolia.com/api/v1/search?query=cybersecurity");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await response.json();
-    if (data.hits && data.hits.length > 0) {
-      const randomArticle = data.hits[Math.floor(Math.random() * data.hits.length)];
-      const newsElement = document.getElementById("cyber-news");
-      if (newsElement) {
-        newsElement.innerHTML = `📰 Cyber News: <a href="${randomArticle.url}" target="_blank" style="color: yellow; text-decoration: underline;">${randomArticle.title}</a><br><img src="${randomArticle.urlToImage ? randomArticle.urlToImage : 'https://via.placeholder.com/150'}" alt="News Image" style="width: 100px; height: auto; display: block; margin: 10px auto;">`;
-        newsElement.style.marginTop = "20px";
-        newsElement.style.fontSize = "20px";
-        newsElement.style.color = "#fff";
-        newsElement.style.textAlign = "center";
-        newsElement.style.padding = "30px";
-        newsElement.style.background = "rgba(0, 0, 0, 0.7)";
-        newsElement.style.borderRadius = "10px";
-        newsElement.style.display = "inline-block";
-        newsElement.style.width = "100%";
-        newsElement.style.overflow = "hidden";
-        newsElement.style.whiteSpace = "nowrap";
-        newsElement.style.textOverflow = "ellipsis";
-      }
-    }
-  } catch (error) {
-    console.error("Failed to fetch news", error);
-  }
-}
-
 function showRandomTip() {
   const tip = securityTips[Math.floor(Math.random() * securityTips.length)];
   const tipElement = document.getElementById("security-tip");
@@ -65,9 +34,7 @@ function showClock() {
 
 document.addEventListener("DOMContentLoaded", () => {
   showRandomTip();
-  fetchCyberNews();
   showClock();
   setInterval(showRandomTip, 10000);
-  setInterval(fetchCyberNews, 15000);
   setInterval(showClock, 1000);
 });
