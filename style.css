@@ -1,78 +1,122 @@
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #1e1e2d;
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+    background: url('https://github.com/securecey/hashgen/blob/main/background1.jpg?raw=true') no-repeat center center fixed;
+    background-size: cover;
     color: white;
-    margin: 0;
-    padding: 0;
+    text-align: left;
 }
 
-h1 {
-    margin: 20px 0;
-    color: #f39c12;
-    font-size: 2.5em;
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: glow 2s infinite alternate;
+    border-bottom: 2px solid white;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 0 0 15px rgba(255, 255, 255, 1); }
+}
+
+.hash-output {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    margin: 20px;
+    justify-content: left;
+    align-items: center;
+}
+
+section > label, section > input[type="text"] {
+    display: block;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+}
+
+section > div {
+    text-align: center;
+}
+
+section > button {
+    display: inline-block;
+    margin: 10px 5px;
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.hash-output div, input[type="text"], input[type="file"] {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.hash-output div:hover, button:hover {
+    transform: scale(1.05);
 }
 
 button {
     padding: 10px 20px;
-    margin: 20px 0;
-    cursor: pointer;
-    border: none;
-    border-radius: 10px;
-    background: #f39c12;
+    background-color: #444;
+    border: 1px solid white;
     color: white;
-    transition: background 0.3s;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: auto;
 }
 
 button:hover {
-    background: #e67e22;
+    background: linear-gradient(45deg, #ff6600, #ffcc00);
+    color: black;
 }
 
-.inline-group {
-    margin: 20px 0;
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.complexity-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-}
-
-#password {
-    margin: 20px 0;
-    padding: 10px;
-    border: 2px solid #f39c12;
-    display: inline-block;
-    background: #2c2c3d;
-    max-width: 80%;
-    word-wrap: break-word;
+::-webkit-scrollbar-thumb {
+    background: #ff6600;
     border-radius: 10px;
-    position: relative;
 }
 
-.copy-icon {
-    display: inline-block;
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 1.2em;
-    vertical-align: middle;
-}
-
-.password-text {
-    display: inline-block;
-    vertical-align: middle;
-    word-break: break-word;
-    max-width: calc(100% - 30px);
-}
-
-#security-tip {
-    color: yellow;
-    font-size: 1em;
-    padding: 10px;
+::-webkit-scrollbar-track {
     background: #333;
-    border: 1px solid #f39c12;
-    border-radius: 10px;
-    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .hash-output {
+        grid-template-columns: 1fr;
+    }
+
+    input[type="text"], input[type="file"] {
+        width: 100%;
+    }
+}
+
+a:focus, button:focus {
+    outline: 2px solid #3498db;
 }
