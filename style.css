@@ -51,7 +51,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 button:hover {
@@ -71,6 +71,7 @@ button:hover {
     white-space: normal;
     text-align: center;
     position: relative;
+    width: auto;
 }
 
 #password span.copy-icon {
@@ -102,4 +103,11 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
     color: #ff9800;
+    margin-top: 20px;
+}
+
+#password span.password-text {
+    display: inline;
+    font-weight: bold;
+    color: #ffffff;
 }
