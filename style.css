@@ -70,6 +70,23 @@ button:hover {
     max-width: 90%;
     white-space: normal;
     text-align: center;
+    position: relative;
+}
+
+#password span.copy-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ff9800;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+#password span.copy-icon:hover {
+    color: #ffa726;
 }
 
 #digital-clock {
